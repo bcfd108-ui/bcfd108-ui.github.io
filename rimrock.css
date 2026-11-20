@@ -1,6 +1,14 @@
 @font-face {
   font-family:Oswald;
-  src:url('assets/oswald.ttf') format('truetype');
+  src:url('assets/oswald-latin.woff2') format('woff2');
+  font-style:normal;
+  font-weight:400 700;
+  font-display:swap;
+}
+
+@font-face {
+  font-family:"IBM Plex Sans";
+  src:url('assets/ibm-plex-sans-latin.woff2') format('woff2');
   font-style:normal;
   font-weight:400 700;
   font-display:swap;
@@ -299,8 +307,27 @@ h2.display {
 
 .cards {
   display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-template-columns:repeat(2,minmax(0,1fr));
   gap:1.35rem;
+}
+
+.district-card {
+  margin:0;
+}
+
+.district-card figcaption {
+  margin-top:.45rem;
+  color:var(--muted);
+  font-size:.82rem;
+}
+
+.resort {
+  border-top:1px solid var(--line);
+  padding:1.7rem 0 3.2rem;
+}
+
+.resort p,.directory p {
+  max-width:65ch;
 }
 
 .card {
@@ -490,8 +517,13 @@ h2.display {
 
 .photo img {
   width:100%;
+  height:auto;
   max-height:340px;
   object-fit:cover;
+}
+
+.credit-thumbnail {
+  max-width:18rem;
 }
 
 .photo figcaption {
@@ -560,8 +592,8 @@ dl {
 .directory {
   padding:1.4rem 0 3.4rem;
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:1.5rem 3.5rem;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1.5rem 2.2rem;
 }
 
 .directory h2 {
@@ -656,6 +688,9 @@ p {
 @media(max-width:760px) {
   .bar .wrap {
     min-height:62px;
+    flex-wrap:wrap;
+    gap:0 1rem;
+    padding-block:.45rem;
   }
   .brandmark {
     width:32px;
@@ -667,14 +702,16 @@ p {
   .brandword small {
     font-size:.58rem;
   }
-  .wide-nav {
-    display:none;
-  }
   nav {
-    gap:1.15rem;
+    flex-wrap:wrap;
+    gap:0 1rem;
   }
   nav a {
     font-size:.86rem;
+    display:inline-flex;
+    align-items:center;
+    min-height:44px;
+    padding:.4rem 0;
   }
   .hero {
     min-height:0;
@@ -787,6 +824,9 @@ p {
 }
 
 @media(max-width:510px) {
+  .district-card figcaption {
+    margin-bottom:1em;
+  }
   .wrap {
     width:91%;
   }
